@@ -9,6 +9,7 @@ class FindAllTargetOccurances{
 		System.out.println(sol.findAllTarget(arr,0,target,list).toString());
 		System.out.println(sol.findAllTarget2(arr,0,target).toString());
 		System.out.println(sol.findAllTarget3(arr,0,target).toString());
+		System.out.println(sol.findAllTarget4(arr,0,target).toString());
 		}
 	
 	
@@ -55,5 +56,20 @@ class Solution{
 		}
 		ArrayList<Integer> list2=findAllTarget3(arr,index+1,target);
 		return combineList(list1, list2);
+	}
+
+	//Solution 4
+	// Here ArrayList is not passed as argument in function, rather the list is being made inside each function call
+	// and list from furthur recusrion is combined with the list in current function call,
+	// and then combined (using built in function) and returned above.
+	ArrayList<Integer> findAllTarget4(int[] arr,int index, int target) {
+		ArrayList<Integer> list1 = new ArrayList<>();
+		if(index==arr.length) return list1;
+		if(arr[index]==target) {
+			list1.add(index);
+		}
+		ArrayList<Integer> list2=findAllTarget4(arr,index+1,target);
+		list1.addAll(list2);
+		return list1;
 	}
 }
