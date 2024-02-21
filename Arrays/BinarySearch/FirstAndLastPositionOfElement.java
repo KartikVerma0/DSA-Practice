@@ -8,8 +8,6 @@
  *  
  */
 
-package Arrays.BinarySearch;
-
 import java.util.Arrays;
 
 public class FirstAndLastPositionOfElement {
