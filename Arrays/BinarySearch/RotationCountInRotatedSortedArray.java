@@ -1,3 +1,5 @@
+package Arrays.BinarySearch;
+
 /* 
  * Find the Rotation Count in Rotated Sorted array
  * [https://www.geeksforgeeks.org/find-rotation-count-rotated-sorted-array/]

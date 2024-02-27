@@ -1,3 +1,5 @@
+package Arrays.BinarySearch;
+
 /*
  * 410. Split Array Largest Sum
  * [https://leetcode.com/problems/split-array-largest-sum/description/]
