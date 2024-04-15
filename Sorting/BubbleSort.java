@@ -9,7 +9,8 @@ class BubbleSort {
         // int[] nums = { 1, 2, 3, 4, 5 };
         // int[] nums = { -1, -2, -3, -4, -5 };
         // int[] nums = {};
-        bubbleSort(nums);
+        // bubbleSort(nums);
+        bubbleSortWithRecursion(nums);
         System.out.println(Arrays.toString(nums));
     }
 
@@ -29,5 +30,30 @@ class BubbleSort {
             if (isSorted)
                 return;
         }
+    }
+
+    static void bubbleSortWithRecursion(int[] nums) {
+        sortHelper(0, 0, nums, true);
+    }
+
+    static void sortHelper(int i, int j, int[] nums, boolean isSorted) {
+        if (i >= nums.length - 1) {
+            return;
+        }
+
+        if (j >= nums.length - i - 1) {
+            if (isSorted)
+                return;
+            sortHelper(i + 1, 0, nums, isSorted);
+            return;
+        }
+
+        if (nums[j] > nums[j + 1]) {
+            isSorted = false;
+            int temp = nums[j];
+            nums[j] = nums[j + 1];
+            nums[j + 1] = temp;
+        }
+        sortHelper(i, j + 1, nums, isSorted);
     }
 }
