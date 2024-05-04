@@ -9,7 +9,8 @@ public class SelectionSort {
         // int[] nums = { 1, 2, 3, 4, 5 };
         // int[] nums = { -1, -2, -3, -4, -5 };
         // int[] nums = {};
-        selectionSort(nums);
+        // selectionSort(nums);
+        selectionSortWithRecursion(nums);
         System.out.println(Arrays.toString(nums));
     }
 
@@ -27,5 +28,29 @@ public class SelectionSort {
             nums[nums.length - i - 1] = nums[maxIndex];
             nums[maxIndex] = temp;
         }
+    }
+
+    static void selectionSortWithRecursion(int[] nums) {
+        sortHelper(0, 1, nums, 0);
+    }
+
+    static void sortHelper(int i, int j, int[] nums, int maxIndex) {
+        if (i >= nums.length - 1) {
+            return;
+        }
+
+        if (j >= nums.length - i) {
+            int temp = nums[nums.length - i - 1];
+            nums[nums.length - i - 1] = nums[maxIndex];
+            nums[maxIndex] = temp;
+            sortHelper(i + 1, 1, nums, 0);
+            return;
+        }
+
+        if (nums[j] >= nums[maxIndex]) {
+            maxIndex = j;
+        }
+        sortHelper(i, j + 1, nums, maxIndex);
+
     }
 }
